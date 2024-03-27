@@ -4,10 +4,16 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
+enum EnemyState
+{
+    Patrol,
+    Searching,
+    Attacking
+}
 
 
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour, IInteractable
 {
     [SerializeField] List<Transform> points = new List<Transform>();
     int index = 0;
@@ -16,6 +22,7 @@ public class EnemyMovement : MonoBehaviour
     int playerLayer;
     [SerializeField]
     float fov = 90.0f;
+    EnemyState state = EnemyState.Patrol;
 
 
     void Start()
@@ -26,7 +33,7 @@ public class EnemyMovement : MonoBehaviour
         GameObject player = GameObject.Find("Player");
         Debug.Assert(player != null);
         playerTransform = player.transform;
-        playerLayer = player.layer;
+        playerLayer = 1 << 7;
     }
 
     // Update is called once per frame
@@ -35,7 +42,8 @@ public class EnemyMovement : MonoBehaviour
         updateAgent();
         if (playerInSight())
         {
-            // Do something?
+            state = EnemyState.Searching;
+            agent.destination = playerTransform.position;
         }
     }
 
@@ -51,16 +59,32 @@ public class EnemyMovement : MonoBehaviour
 
     bool playerInSight()
     {
-
-        Vector3 direction = playerTransform.position - transform.position;
+        Vector3 direction = Vector3.Normalize(playerTransform.position - transform.position);
         if(2 * Vector3.Angle(direction, transform.forward) < fov && !Physics.Raycast(transform.position, direction, Vector3.Distance(transform.position, playerTransform.position), ~playerLayer))
         {
+            Debug.DrawLine(transform.position, playerTransform.position, Color.red);
             return true;
         }
         else
         {
+            Debug.DrawLine(transform.position, playerTransform.position, Color.green);
             return false;
         }
+    }
+
+    public void Interact(Transform interactorTransform)
+    {
+        Destroy(gameObject);
+    }
+
+    public string GetInteractText()
+    {
+        return "Kill";
+    }
+
+    public Transform GetTransform()
+    {
+        return transform;
     }
 }
 
