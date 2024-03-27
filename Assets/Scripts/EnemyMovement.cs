@@ -3,19 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-
-enum EnemyState
-{
-    Patrol,
-    Searching,
-    Attacking
-}
-
-
-
 public class EnemyMovement : MonoBehaviour, IInteractable
 {
+    public enum EnemyState
+    {
+        Patrol,
+        Searching,
+        Attacking
+    }
+
     [SerializeField] List<Transform> patrolPoints = new List<Transform>();
+    [SerializeField] private float hearingDistance = 8f;
     int index = 0;
     NavMeshAgent agent;
     Transform playerTransform;
@@ -72,6 +70,25 @@ public class EnemyMovement : MonoBehaviour, IInteractable
         }
     }
 
+    public void SoundHeard(Transform soundTransform)
+    {
+        Vector3 soundPosition = soundTransform.position;
+        if (!IsSoundOnRange(soundPosition)) return;
+
+        // TODO: Move Towards sound
+        Debug.Log("Heard sound, moving towards sound");
+
+    }
+
+    private bool IsSoundOnRange(Vector3 soundPosition)
+    {
+        if (Vector3.Distance(transform.position, soundPosition) < hearingDistance)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public void Interact(Transform interactorTransform)
     {
         Destroy(gameObject);
@@ -93,6 +110,7 @@ public class EnemyMovement : MonoBehaviour, IInteractable
         {
             Gizmos.DrawSphere(t.position, 0.4f);
         }
+        Gizmos.DrawWireSphere(transform.position, hearingDistance);
     }
 }
 
