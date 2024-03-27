@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace EvolveGames
 {
@@ -49,6 +50,13 @@ namespace EvolveGames
         }
 
         void Update()
+        {
+            updateMovement();
+        }
+
+
+
+        void updateMovement()
         {
             // Perform raycast to check if the player is grounded
             isGrounded = Physics.Raycast(transform.position, -Vector3.up, characterController.height / 2 + 0.1f);
