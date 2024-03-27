@@ -15,7 +15,7 @@ enum EnemyState
 
 public class EnemyMovement : MonoBehaviour, IInteractable
 {
-    [SerializeField] List<Transform> points = new List<Transform>();
+    [SerializeField] List<Transform> patrolPoints = new List<Transform>();
     int index = 0;
     NavMeshAgent agent;
     Transform playerTransform;
@@ -28,10 +28,10 @@ public class EnemyMovement : MonoBehaviour, IInteractable
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.destination = points[index].position;
+        agent.destination = patrolPoints[index].position;
 
         GameObject player = GameObject.Find("Player");
-        Debug.Assert(player != null);
+        Debug.Assert(player != null, "Player is null!");
         playerTransform = player.transform;
         playerLayer = 1 << 7;
     }
@@ -51,8 +51,8 @@ public class EnemyMovement : MonoBehaviour, IInteractable
     {
         if (!agent.pathPending && agent.remainingDistance < 0.2)
         {
-            index = (index + 1) % points.Count;
-            agent.destination = points[index].position;
+            index = (index + 1) % patrolPoints.Count;
+            agent.destination = patrolPoints[index].position;
         }
     }
 
@@ -85,6 +85,14 @@ public class EnemyMovement : MonoBehaviour, IInteractable
     public Transform GetTransform()
     {
         return transform;
+    }
+
+    private void OnDrawGizmos()
+    {
+        foreach(var t in patrolPoints)
+        {
+            Gizmos.DrawSphere(t.position, 0.4f);
+        }
     }
 }
 

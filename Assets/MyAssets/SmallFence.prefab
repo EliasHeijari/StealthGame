@@ -12,21 +12,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallFence
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 860b4a48bd6f3cf4b958a1d928e3c111, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 860b4a48bd6f3cf4b958a1d928e3c111, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.3333
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 860b4a48bd6f3cf4b958a1d928e3c111, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 310.91287
+      value: 13.858264
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 860b4a48bd6f3cf4b958a1d928e3c111, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.5097237
+      value: -12.952901
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 860b4a48bd6f3cf4b958a1d928e3c111, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -450.7391
+      value: -9.723907
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 860b4a48bd6f3cf4b958a1d928e3c111, type: 3}
       propertyPath: m_LocalRotation.w
