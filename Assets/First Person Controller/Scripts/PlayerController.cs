@@ -60,8 +60,8 @@ namespace EvolveGames
             Vector3 forward = transform.TransformDirection(Vector3.forward);
             Vector3 right = transform.TransformDirection(Vector3.right);
             isRunning = CanRunning ? Input.GetKey(KeyCode.LeftShift) : false;
-            vertical = canMove ? (isRunning ? RunningValue : WalkingValue) * Input.GetAxis("Vertical") : 0;
-            horizontal = canMove ? (isRunning ? RunningValue : WalkingValue) * Input.GetAxis("Horizontal") : 0;
+            vertical = canMove ? (isRunning ? RunningValue : WalkingValue) * Input.GetAxisRaw("Vertical") : 0;
+            horizontal = canMove ? (isRunning ? RunningValue : WalkingValue) * Input.GetAxisRaw("Horizontal") : 0;
             if (isRunning) RunningValue = Mathf.Lerp(RunningValue, runningSpeed, timeToRunning * Time.deltaTime);
             else RunningValue = WalkingValue;
             float movementDirectionY = moveDirection.y;
@@ -84,8 +84,8 @@ namespace EvolveGames
 
             if (Cursor.lockState == CursorLockMode.Locked && canMove)
             {
-                Lookvertical = -Input.GetAxis("Mouse Y");
-                Lookhorizontal = Input.GetAxis("Mouse X");
+                Lookvertical = -Input.GetAxisRaw("Mouse Y");
+                Lookhorizontal = Input.GetAxisRaw("Mouse X");
 
                 rotationX += Lookvertical * lookSpeed;
                 rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
