@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour {
 
+    [SerializeField] private float interactRadius = 2f;
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.E)) {
@@ -16,8 +17,7 @@ public class PlayerInteract : MonoBehaviour {
 
     public IInteractable GetInteractableObject() {
         List<IInteractable> interactableList = new List<IInteractable>();
-        float interactRange = 3f;
-        Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
+        Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRadius);
         foreach (Collider collider in colliderArray) {
             if (collider.TryGetComponent(out IInteractable interactable)) {
                 interactableList.Add(interactable);
