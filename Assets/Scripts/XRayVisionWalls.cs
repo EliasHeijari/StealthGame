@@ -17,7 +17,8 @@ public class XRayVisionWalls : MonoBehaviour
     private void Update()
     {
         Vector3 directionToPlayer = player.transform.position - transform.position;
-        if (Physics.Raycast(transform.position, directionToPlayer, out RaycastHit hit, 300f))
+        float playerHeight = 1f;
+        if (Physics.Raycast(transform.position, directionToPlayer + Vector3.up * playerHeight, out RaycastHit hit, 300f))
         {
             if (hit.collider.gameObject != player)
             {
@@ -30,7 +31,7 @@ public class XRayVisionWalls : MonoBehaviour
                     lastHittedObject = hit.collider.gameObject;
                 }
 
-                if (!IsSeeThrough(hit.collider.gameObject))
+                if (!IsMaterialSeeThrough(hit.collider.gameObject))
                 {
                     MakeMaterialSeeThrough(hit.collider.gameObject);
                 }
@@ -42,7 +43,7 @@ public class XRayVisionWalls : MonoBehaviour
         }
     }
 
-    private bool IsSeeThrough(GameObject targetObject)
+    private bool IsMaterialSeeThrough(GameObject targetObject)
     {
         if (targetObject.TryGetComponent(out MeshRenderer meshRenderer))
         {
