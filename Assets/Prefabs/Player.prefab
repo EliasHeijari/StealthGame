@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2602570174701121428}
   - component: {fileID: 5125964740798583212}
   - component: {fileID: 2832482986865914294}
+  - component: {fileID: 6609466028607949706}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -74,7 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkingSpeed: 3
   CrouchSpeed: 1
-  runningSpeed: 4
+  runningSpeed: 4.5
   jumpSpeed: 6
   lookSpeed: 2
   lookXLimit: 80
@@ -94,6 +95,18 @@ MonoBehaviour:
   Lookvertical: 0
   Lookhorizontal: 0
   WalkingValue: 0
+--- !u!114 &6609466028607949706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452043490221590637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18bfb939c24a3de40ac27c2685419056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2857637599072078953
 GameObject:
   m_ObjectHideFlags: 0

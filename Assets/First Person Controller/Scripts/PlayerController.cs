@@ -61,7 +61,7 @@ namespace EvolveGames
             Vector3 right = transform.TransformDirection(Vector3.right);
             isRunning = CanRunning ? Input.GetKey(KeyCode.LeftShift) : false;
             vertical = canMove ? (isRunning ? RunningValue : WalkingValue) * Input.GetAxisRaw("Vertical") : 0;
-            horizontal = canMove ? (isRunning ? RunningValue : WalkingValue) * Input.GetAxisRaw("Horizontal") : 0;
+            //horizontal = canMove ? (isRunning ? RunningValue : WalkingValue) * Input.GetAxisRaw("Horizontal") : 0;
             if (isRunning) RunningValue = Mathf.Lerp(RunningValue, runningSpeed, timeToRunning * Time.deltaTime);
             else RunningValue = WalkingValue;
             float movementDirectionY = moveDirection.y;
