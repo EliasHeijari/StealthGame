@@ -6,11 +6,12 @@ public class DoorInteractable : MonoBehaviour, IInteractable
 {
     bool isOpen = false;
 
-    Animator animator;
+    [SerializeField] Animator animator;
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        if (animator == null)
+            animator = GetComponent<Animator>();
     }
 
     public string GetInteractText()
