@@ -54,8 +54,6 @@ namespace EvolveGames
             updateMovement();
         }
 
-
-
         void updateMovement()
         {
             // Perform raycast to check if the player is grounded
