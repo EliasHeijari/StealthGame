@@ -20,6 +20,8 @@ public class EnemyMovement : MonoBehaviour, IInteractable
     int playerLayer;
     [SerializeField]
     float fov = 90.0f;
+
+    // TODO: Use state
     EnemyState state = EnemyState.Patrol;
 
 
