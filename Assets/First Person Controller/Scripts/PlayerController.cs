@@ -10,9 +10,7 @@ namespace EvolveGames
     {
         [Header("PlayerController")]
         [SerializeField, Range(1, 10)] float walkingSpeed = 3.0f;
-        [Range(0.1f, 5)] public float CrouchSpeed = 1.0f;
         [SerializeField, Range(2, 20)] float runningSpeed = 4.0f;
-        [SerializeField, Range(0, 20)] float jumpSpeed = 6.0f;
         [SerializeField, Range(0.5f, 10)] float lookSpeed = 2.0f;
         [SerializeField, Range(10, 120)] float lookXLimit = 80.0f;
         [Space(20)]
@@ -77,14 +75,9 @@ namespace EvolveGames
             desiredMove = Vector3.ClampMagnitude(desiredMove, 1.0f); // Normalize the desired movement vector
             moveDirection = desiredMove * (isRunning ? RunningValue : WalkingValue);
 
-            if (Input.GetButton("Jump") && canMove && isGrounded)
-            {
-                moveDirection.y = jumpSpeed;
-            }
-            else
-            {
-                moveDirection.y = movementDirectionY;
-            }
+
+            moveDirection.y = movementDirectionY;
+
             characterController.Move(moveDirection * Time.deltaTime);
             Moving = horizontal < 0 || vertical < 0 || horizontal > 0 || vertical > 0 ? true : false;
 
