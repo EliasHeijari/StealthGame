@@ -35,7 +35,6 @@ namespace EvolveGames
         [HideInInspector] public float Lookhorizontal;
         float RunningValue;
         [HideInInspector] public float WalkingValue;
-        private bool isGrounded = false;
 
         void Start()
         {
@@ -54,9 +53,6 @@ namespace EvolveGames
 
         void updateMovement()
         {
-            // Perform raycast to check if the player is grounded
-            isGrounded = Physics.Raycast(transform.position, -Vector3.up, characterController.height / 2 + 0.1f);
-
             if (!characterController.isGrounded)
             {
                 moveDirection.y -= gravity * Time.deltaTime;
