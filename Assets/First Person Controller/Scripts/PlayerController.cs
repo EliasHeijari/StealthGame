@@ -38,6 +38,7 @@ namespace EvolveGames
 
         void Start()
         {
+            cam = Camera.main;
             characterController = GetComponent<CharacterController>();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;

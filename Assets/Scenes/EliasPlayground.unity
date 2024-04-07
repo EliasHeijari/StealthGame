@@ -723,7 +723,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -2863,6 +2863,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1511957688145562573, guid: 2ecbf4b608db6874fb2540acabeac241,
+        type: 3}
+      propertyPath: m_Speed
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1709438938684850315, guid: 2ecbf4b608db6874fb2540acabeac241,
         type: 3}
       propertyPath: m_Name
@@ -2917,6 +2922,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8444558346570775434, guid: 2ecbf4b608db6874fb2540acabeac241,
+        type: 3}
+      propertyPath: hearingDistance
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8444558346570775434, guid: 2ecbf4b608db6874fb2540acabeac241,
         type: 3}
@@ -3651,6 +3661,16 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1359856012}
+    - target: {fileID: 6609466028607949706, guid: 650f8942265c90540952b49d66bd49f3,
+        type: 3}
+      propertyPath: interactRadius
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7384806733314887051, guid: 650f8942265c90540952b49d66bd49f3,
+        type: 3}
+      propertyPath: throwForce
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

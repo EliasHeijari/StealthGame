@@ -19,6 +19,8 @@ public class ItemHandler : MonoBehaviour
 
     public void SetItem(GameObject item)
     {
+        if (this.item == item) return;
+
         if (item.GetComponent<Rigidbody>() != null)
         {
             Destroy(item.GetComponent<Rigidbody>());

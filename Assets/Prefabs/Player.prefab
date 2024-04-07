@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: {fileID: 530262799096759169}
-  throwForce: 300
+  throwForce: 500
 --- !u!1001 &8327277204765329177
 PrefabInstance:
   m_ObjectHideFlags: 0

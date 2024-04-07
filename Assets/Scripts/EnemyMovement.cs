@@ -21,9 +21,6 @@ public class EnemyMovement : MonoBehaviour, IInteractable
     [SerializeField]
     float fov = 90.0f;
 
-    // TODO: Use state
-    EnemyState state = EnemyState.Patrol;
-
 
     void Start()
     {
@@ -42,8 +39,7 @@ public class EnemyMovement : MonoBehaviour, IInteractable
         updateAgent();
         if (playerInSight())
         {
-            state = EnemyState.Searching;
-            agent.destination = playerTransform.position;
+            Debug.Log("Game Over, Wasted!");
         }
     }
 
@@ -77,8 +73,8 @@ public class EnemyMovement : MonoBehaviour, IInteractable
         Vector3 soundPosition = soundTransform.position;
         if (!IsSoundOnRange(soundPosition)) return;
 
-        // TODO: Move Towards sound
-        Debug.Log("Heard sound, moving towards sound");
+        // Move Towards sound
+        agent.destination = soundPosition;
 
     }
 
