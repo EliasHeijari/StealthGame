@@ -1,18 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerInteract : MonoBehaviour {
+public class PlayerInteract : NetworkBehaviour {
 
     [SerializeField] private float interactRadius = 2f;
 
     private void Update() {
+        if (!IsOwner) return;
+
         if (Input.GetKeyDown(KeyCode.E)) {
             IInteractable interactable = GetInteractableObject();
             if (interactable != null) {
-                interactable.Interact(transform);
+                InteractionServerRpc(interactable.GetTransform().GetComponent<NetworkObject>());
             }
         }
+    }
+
+    [ServerRpc]
+    private void InteractionServerRpc(NetworkObjectReference networkObjectReference)
+    {
+        InteractionClientRpc(networkObjectReference);
+    }
+
+    [ClientRpc]
+    private void InteractionClientRpc(NetworkObjectReference networkObjectReference)
+    {
+        networkObjectReference.TryGet(out NetworkObject networkObject);
+        IInteractable interactable = networkObject.GetComponent<IInteractable>();
+        interactable.Interact(transform);
     }
 
     public IInteractable GetInteractableObject() {

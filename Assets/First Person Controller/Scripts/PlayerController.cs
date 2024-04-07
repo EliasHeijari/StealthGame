@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace EvolveGames
 {
     [RequireComponent(typeof(CharacterController))]
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : NetworkBehaviour
     {
         [Header("PlayerController")]
         [SerializeField, Range(1, 10)] float walkingSpeed = 3.0f;
@@ -49,6 +47,19 @@ namespace EvolveGames
 
         void Update()
         {
+            if (!IsOwner) return;
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Cursor.visible = !Cursor.visible;
+                if (Cursor.visible)
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                }
+                else
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                }
+            }
             updateMovement();
         }
 

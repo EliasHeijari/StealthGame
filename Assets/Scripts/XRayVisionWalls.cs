@@ -7,15 +7,14 @@ public class XRayVisionWalls : MonoBehaviour
     private GameObject player;
     GameObject lastHittedObject;
 
-    private void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-
-        if (player == null) Debug.LogError("Player does not have a player tag");
-    }
-
     private void Update()
     {
+        if (player == null)
+        {
+            if (Player.localInstance == null) return;
+            else player = Player.localInstance.gameObject;
+        }
+
         Vector3 directionToPlayer = player.transform.position - transform.position;
         float playerHeight = 1f;
         if (Physics.Raycast(transform.position, directionToPlayer + Vector3.up * playerHeight, out RaycastHit hit, 300f))

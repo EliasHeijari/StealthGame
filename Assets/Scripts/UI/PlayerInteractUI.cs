@@ -8,7 +8,20 @@ public class PlayerInteractUI : MonoBehaviour {
     [SerializeField] private PlayerInteract playerInteract;
     [SerializeField] private TextMeshProUGUI interactTextMeshProUGUI;
 
+    private void Awake()
+    {
+        Player.OnAnyPlayerSpawned += Player_OnAnyPlayerSpawned;
+    }
+
+    private void Player_OnAnyPlayerSpawned(object sender, System.EventArgs e)
+    {
+        Player.OnAnyPlayerSpawned -= Player_OnAnyPlayerSpawned;
+        playerInteract = Player.localInstance.GetComponent<PlayerInteract>();
+    }
+
     private void Update() {
+        if (playerInteract == null) return;
+
         if (playerInteract.GetInteractableObject() != null) {
             Show(playerInteract.GetInteractableObject());
         } else {

@@ -41,11 +41,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2602570174701121428}
   - component: {fileID: 5125964740798583212}
+  - component: {fileID: 930088830721964921}
   - component: {fileID: 2832482986865914294}
   - component: {fileID: 6609466028607949706}
   - component: {fileID: 6542696825328964322}
   - component: {fileID: 3466703029853920517}
   - component: {fileID: 7384806733314887051}
+  - component: {fileID: 4950398818758540228}
+  - component: {fileID: 7549066605007670296}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -95,6 +98,26 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &930088830721964921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452043490221590637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3674071767
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!114 &2832482986865914294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18bfb939c24a3de40ac27c2685419056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactRadius: 1
+  interactRadius: 1.5
 --- !u!136 &6542696825328964322
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -193,6 +216,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hand: {fileID: 530262799096759169}
   throwForce: 500
+--- !u!114 &4950398818758540228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452043490221590637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17e14be4f261364ea3835af89c78f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 0
+  SyncPositionZ: 1
+  SyncRotAngleX: 0
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 0
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
+--- !u!114 &7549066605007670296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452043490221590637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf18802439efa84ea6597a766a97bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8327277204765329177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -278,6 +343,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 544687867181704019}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 22a4379798696814aab76a93d5465ff2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6649167332914674666}
   m_SourcePrefab: {fileID: 100100000, guid: 22a4379798696814aab76a93d5465ff2, type: 3}
 --- !u!95 &2520603840223279752 stripped
 Animator:
@@ -317,3 +386,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2520603840223279752}
   playerController: {fileID: 2832482986865914294}
+--- !u!114 &6649167332914674666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9174122362456767048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7482e2efedab874fa950e2435723797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransitionStateInfoList: []
+  m_Animator: {fileID: 2520603840223279752}

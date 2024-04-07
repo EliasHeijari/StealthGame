@@ -40,15 +40,13 @@ public class ItemHandler : MonoBehaviour
 
     private void SetItemToHand(GameObject item)
     {
-        item.transform.parent = hand;
-        item.transform.localPosition = Vector3.zero;
+        item.GetComponent<FollowTransform>().target = hand;
         this.item = item;
     }
 
     private void DropItem()
     {
         if (item == null) return;
-        item.transform.parent = null;
         item.transform.AddComponent<Rigidbody>().AddForce(transform.forward * throwForce);
         item = null;
     }
