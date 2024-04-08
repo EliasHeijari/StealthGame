@@ -3577,6 +3577,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1345041031}
   - component: {fileID: 1345041032}
+  - component: {fileID: 1345041033}
   m_Layer: 0
   m_Name: DoorInteractable
   m_TagString: Untagged
@@ -3621,6 +3622,41 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1345041033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345041030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7482e2efedab874fa950e2435723797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransitionStateInfoList:
+  - IsCrossFadeExit: 0
+    Layer: 0
+    OriginatingState: 57362642
+    DestinationState: 71445658
+    TransitionDuration: 0
+    TriggerNameHash: -1260380835
+    TransitionIndex: 0
+  - IsCrossFadeExit: 0
+    Layer: 0
+    OriginatingState: 71445658
+    DestinationState: 57362642
+    TransitionDuration: 0
+    TriggerNameHash: -1260380835
+    TransitionIndex: 0
+  - IsCrossFadeExit: 0
+    Layer: 0
+    OriginatingState: 1335092214
+    DestinationState: 71445658
+    TransitionDuration: 0
+    TriggerNameHash: -1260380835
+    TransitionIndex: 0
+  m_Animator: {fileID: 1345041032}
 --- !u!1 &1359856010
 GameObject:
   m_ObjectHideFlags: 0
@@ -5394,6 +5430,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item
       objectReference: {fileID: 0}
+    - target: {fileID: 3232574503976796015, guid: 8e36ac10d96d8d2478370133c4c5def0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4112260685563657792, guid: 8e36ac10d96d8d2478370133c4c5def0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5444,6 +5485,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4563855383074905720, guid: 8e36ac10d96d8d2478370133c4c5def0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8208475521661148668, guid: 8e36ac10d96d8d2478370133c4c5def0,
         type: 3}
       propertyPath: GlobalObjectIdHash
@@ -5452,6 +5498,11 @@ PrefabInstance:
     - target: {fileID: 8238612569549377176, guid: 8e36ac10d96d8d2478370133c4c5def0,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8238612569549377176, guid: 8e36ac10d96d8d2478370133c4c5def0,
+        type: 3}
+      propertyPath: Interpolate
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8755221355690579895, guid: 8e36ac10d96d8d2478370133c4c5def0,
@@ -5571,11 +5622,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3747624506056098384, guid: ae9e92c874acb294fa48f868c7803ffd,
-        type: 3}
-      propertyPath: playerInteract
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7986846366492262499, guid: ae9e92c874acb294fa48f868c7803ffd,
         type: 3}
