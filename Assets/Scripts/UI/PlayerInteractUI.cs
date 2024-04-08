@@ -10,13 +10,22 @@ public class PlayerInteractUI : MonoBehaviour {
 
     private void Awake()
     {
-        Player.OnAnyPlayerSpawned += Player_OnAnyPlayerSpawned;
+        if (Player.localInstance != null)
+        {
+            playerInteract = Player.localInstance.GetComponent<PlayerInteract>();
+        }
+        else
+        {
+            Player.OnAnyPlayerSpawned += Player_OnAnyPlayerSpawned;
+        }
     }
 
     private void Player_OnAnyPlayerSpawned(object sender, System.EventArgs e)
     {
-        Player.OnAnyPlayerSpawned -= Player_OnAnyPlayerSpawned;
-        playerInteract = Player.localInstance.GetComponent<PlayerInteract>();
+        if (Player.localInstance != null)
+        {
+            playerInteract = Player.localInstance.GetComponent<PlayerInteract>();
+        }
     }
 
     private void Update() {

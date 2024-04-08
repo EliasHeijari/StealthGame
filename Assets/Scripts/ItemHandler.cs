@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ItemHandler : MonoBehaviour
+public class ItemHandler : NetworkBehaviour
 {
     [SerializeField] private Transform hand;
     [SerializeField] private float throwForce = 300f;
@@ -11,30 +12,33 @@ public class ItemHandler : MonoBehaviour
 
     private void Update()
     {
+        if (!IsOwner) return;
+
         if (Input.GetKeyDown(KeyCode.G))
         {
             DropItem();
         }
     }
 
-    public void SetItem(GameObject item)
+    public void SetItem(GameObject itemGO)
     {
-        if (this.item == item) return;
+        if (this.item == itemGO) return;
 
-        if (item.GetComponent<Rigidbody>() != null)
+        Item item = itemGO.GetComponent<Item>();
+        if (item.isRigidbodyEnable)
         {
-            Destroy(item.GetComponent<Rigidbody>());
+            item.DisableRigidbody();
         }
 
         if (this.item == null)
         {
-            SetItemToHand(item);
+            SetItemToHand(itemGO);
         }
         else
         {
             // holding item and trying to pick up new item
             DropItem();
-            SetItemToHand(item);
+            SetItemToHand(itemGO);
         }
     }
 
@@ -46,8 +50,11 @@ public class ItemHandler : MonoBehaviour
 
     private void DropItem()
     {
+        Debug.Log("Drop Item");
         if (item == null) return;
-        item.transform.AddComponent<Rigidbody>().AddForce(transform.forward * throwForce);
+        item.GetComponent<FollowTransform>().target = null;
+        item.GetComponent<Item>().EnableRigidbody();
+        item.GetComponent<Rigidbody>().AddForce(transform.forward * throwForce);
         item = null;
     }
 }

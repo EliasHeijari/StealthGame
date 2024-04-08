@@ -10,6 +10,14 @@ using UnityEngine.Events;
 public class Item : MonoBehaviour, IInteractable
 {
     public UnityEvent OnSoundMade;
+    Rigidbody rb;
+
+    public bool isRigidbodyEnable { get { return !rb.isKinematic; } }
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     public string GetInteractText()
     {
@@ -19,6 +27,16 @@ public class Item : MonoBehaviour, IInteractable
     public Transform GetTransform()
     {
         return transform;
+    }
+
+    public void DisableRigidbody()
+    {
+        rb.isKinematic = true;
+    }
+
+    public void EnableRigidbody()
+    {
+        rb.isKinematic = false;
     }
 
     public void Interact(Transform interactorTransform)

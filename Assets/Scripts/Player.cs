@@ -9,8 +9,13 @@ public class Player : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        Debug.Log(NetworkObject.OwnerClientId);
-        localInstance = this;
+        if (IsOwner)
+            localInstance = this;
         OnAnyPlayerSpawned?.Invoke(this, EventArgs.Empty);
+    }
+
+    public override void OnDestroy()
+    {
+        OnAnyPlayerSpawned = null;
     }
 }

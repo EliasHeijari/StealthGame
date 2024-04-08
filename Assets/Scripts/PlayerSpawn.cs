@@ -6,12 +6,21 @@ public class PlayerSpawn : MonoBehaviour
 {
     private void Start()
     {
-        Player.OnAnyPlayerSpawned += Player_OnAnyPlayerSpawned;
+        if (Player.localInstance != null)
+        {
+            Player.localInstance.transform.position = transform.position;
+        }
+        else
+        {
+            Player.OnAnyPlayerSpawned += Player_OnAnyPlayerSpawned;
+        }
     }
 
     private void Player_OnAnyPlayerSpawned(object sender, System.EventArgs e)
     {
-        Player.OnAnyPlayerSpawned -= Player_OnAnyPlayerSpawned;
-        Player.localInstance.transform.position = transform.position;
+        if (Player.localInstance != null)
+        {
+            Player.localInstance.transform.position = transform.position;
+        }
     }
 }
