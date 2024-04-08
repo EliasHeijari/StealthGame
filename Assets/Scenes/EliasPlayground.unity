@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5209,84 +5209,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1915277888}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &1967615370
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3232574503976796015, guid: 8e36ac10d96d8d2478370133c4c5def0,
-        type: 3}
-      propertyPath: m_Name
-      value: Item (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4112260685563657792, guid: 8e36ac10d96d8d2478370133c4c5def0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4112260685563657792, guid: 8e36ac10d96d8d2478370133c4c5def0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4112260685563657792, guid: 8e36ac10d96d8d2478370133c4c5def0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4112260685563657792, guid: 8e36ac10d96d8d2478370133c4c5def0,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4112260685563657792, guid: 8e36ac10d96d8d2478370133c4c5def0,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4112260685563657792, guid: 8e36ac10d96d8d2478370133c4c5def0,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4112260685563657792, guid: 8e36ac10d96d8d2478370133c4c5def0,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4112260685563657792, guid: 8e36ac10d96d8d2478370133c4c5def0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4112260685563657792, guid: 8e36ac10d96d8d2478370133c4c5def0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4112260685563657792, guid: 8e36ac10d96d8d2478370133c4c5def0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8208475521661148668, guid: 8e36ac10d96d8d2478370133c4c5def0,
-        type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 2957650944
-      objectReference: {fileID: 0}
-    - target: {fileID: 8755221355690579895, guid: 8e36ac10d96d8d2478370133c4c5def0,
-        type: 3}
-      propertyPath: OnSoundMade.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1674315125}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8e36ac10d96d8d2478370133c4c5def0, type: 3}
 --- !u!1 &2019256743
 GameObject:
   m_ObjectHideFlags: 0
@@ -5527,6 +5449,11 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 1277956723
       objectReference: {fileID: 0}
+    - target: {fileID: 8238612569549377176, guid: 8e36ac10d96d8d2478370133c4c5def0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8755221355690579895, guid: 8e36ac10d96d8d2478370133c4c5def0,
         type: 3}
       propertyPath: OnSoundMade.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5674,7 +5601,6 @@ SceneRoots:
   - {fileID: 557796391}
   - {fileID: 1345041031}
   - {fileID: 1448131350963892187}
-  - {fileID: 1967615370}
   - {fileID: 1674315124}
   - {fileID: 2123459056}
   - {fileID: 980902664}
