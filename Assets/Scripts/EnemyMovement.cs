@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMovement : MonoBehaviour, IInteractable
+public class EnemyMovement : NetworkBehaviour, IInteractable
 {
     public enum EnemyState
     {
@@ -100,6 +101,11 @@ public class EnemyMovement : MonoBehaviour, IInteractable
     public Transform GetTransform()
     {
         return transform;
+    }
+
+    public NetworkObject GetNetworkObject()
+    {
+        return NetworkObject;
     }
 
     private void OnDrawGizmos()

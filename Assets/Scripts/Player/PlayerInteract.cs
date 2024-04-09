@@ -13,7 +13,7 @@ public class PlayerInteract : NetworkBehaviour {
         if (Input.GetKeyDown(KeyCode.E)) {
             IInteractable interactable = GetInteractableObject();
             if (interactable != null) {
-                InteractionServerRpc(interactable.GetTransform().GetComponent<NetworkObject>());
+                InteractionServerRpc(interactable.GetNetworkObject());
             }
         }
     }

@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class DoorInteractable : MonoBehaviour, IInteractable
+public class DoorInteractable : NetworkBehaviour, IInteractable
 {
-    bool isOpen = false;
+    NetworkVariable<bool> isOpen = new NetworkVariable<bool>();
 
     [SerializeField] Animator animator;
 
@@ -16,7 +17,7 @@ public class DoorInteractable : MonoBehaviour, IInteractable
 
     public string GetInteractText()
     {
-        if (isOpen) return "Close";
+        if (isOpen.Value) return "Close";
         else return "Open";
     }
 
@@ -25,9 +26,20 @@ public class DoorInteractable : MonoBehaviour, IInteractable
         return transform;
     }
 
+    public NetworkObject GetNetworkObject()
+    {
+        return NetworkObject;
+    }
+
     public void Interact(Transform interactorTransform)
     {
         animator.SetTrigger("OpenClose");
-        isOpen = !isOpen;
+        IsOpenTriggerServerRpc();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void IsOpenTriggerServerRpc()
+    {
+        isOpen.Value = !isOpen.Value;
     }
 }
